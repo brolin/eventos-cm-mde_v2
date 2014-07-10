@@ -16,6 +16,7 @@ module.exports = {
       required : true,
       unique : true
     },
+    roles : { type : 'array' },
     institucionEducativa : { type : 'string' },
     inscritoEnEvento : {
       collection : 'Evento',

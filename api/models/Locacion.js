@@ -31,6 +31,14 @@ module.exports = {
     locacionPermanente : {
       type : 'boolean',
       defaultsTo : true
+    },
+    eventoEnLocacion : {
+      collection : 'Evento',
+      via : 'locacionDelEvento'
+    },
+    // PAra ir creando categorías en las diferentes locaciones
+    tagsLocacion : {
+      type : 'array'
     }
   }
 };

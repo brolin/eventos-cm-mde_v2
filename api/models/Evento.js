@@ -24,8 +24,9 @@ module.exports = {
       defaultsTo : '30'
       },
     lugar : { type : 'STRING' },
-    fecha : { type : 'DATE' },
-    hora : { type : 'STRING' },
+    fechaInicio : { type : 'DATE' },
+    fechaFin : { type : 'DATE' },
+    horario : { type : 'STRING' },
     contacto : { type : 'STRING' },
     urlImagen : { type : 'STRING' },
     urlMemorias : { type : 'STRING' },
@@ -36,9 +37,21 @@ module.exports = {
        via : 'ComentariosPreguntas'
      },
      */
-    inscritos : {
+    creadoPor : {
+      model : 'Persona'
+    },
+    inscritosEvento : {
       collection : 'Persona',
-      via : 'inscritoEnTaller'
-      }
+      via : 'inscritoEnEvento'
+    },
+    locacionDelEvento : {
+      collection : 'Evento',
+      via : 'eventoEnLocacion',
+      dominant : 'true'
+    },
+    caracterEvento : {
+      type : 'string'
+      //enum : ['curso','taller','activacion','concierto'] // etc ..
+    }
   }
 };
