@@ -31,12 +31,10 @@ module.exports = {
     urlImagen : { type : 'STRING' },
     urlMemorias : { type : 'STRING' },
     tallerista : { type : 'STRING' }, // ¿Cómo un submodelo, nombre, teléfono, email ?
-    /*
      comentarios : {
        collection : 'Comentario',
-       via : 'ComentariosPreguntas'
+       via : 'comentarioSobreEvento'
      },
-     */
     creadoPor : {
       model : 'Persona'
     },
@@ -45,9 +43,7 @@ module.exports = {
       via : 'inscritoEnEvento'
     },
     locacionDelEvento : {
-      collection : 'Evento',
-      via : 'eventoEnLocacion',
-      dominant : 'true'
+      model : 'Locacion'
     },
     caracterEvento : {
       type : 'string'

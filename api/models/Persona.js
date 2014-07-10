@@ -21,7 +21,7 @@ module.exports = {
     inscritoEnEvento : {
       collection : 'Evento',
       via : 'inscritosEvento',
-      dominant : 'true'
+      dominant : true
     },
     // Una persona solo tiene un nodo más cercano, los eventos tienen asociados los nodos también
     nodoMasCercano : {
