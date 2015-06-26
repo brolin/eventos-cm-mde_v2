@@ -6,9 +6,8 @@
 */
 
 module.exports = {
-
+  adapter: 'mongodb2',
   attributes: {
 
   }
 };
-
