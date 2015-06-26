@@ -32,8 +32,11 @@ module.exports.routes = {
   },
 
 
-  // Custom routes here...
 
+  // Custom routes here...
+ 'get /inventario': 'InventarioController.findAll',
+ 'get /inventario/editarDetalle/:id': 'InventarioController.editarDetalle',
+ 'post /inventario/editarDetalle/:id?': 'InventarioController.updateDetalle'
 
   // If a request to a URL doesn't match any of the custom routes above,
   // it is matched against Sails route blueprints.  See `config/blueprints.js`

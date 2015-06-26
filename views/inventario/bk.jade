@@ -1,0 +1,13 @@
+extends ../layout
+block body
+  h1 Inventario Casa de Música Guayabal
+  table
+    tbody
+      each item in inventario
+        tr
+          td #{item.item}
+          td #{item.quantity}
+          td
+            ul
+              for val, key in #{item.specs}
+                li #{key}: #{val}

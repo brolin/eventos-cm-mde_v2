@@ -1,0 +1,39 @@
+extends ../layout
+block body
+  .jumbotron.hero-spacer
+    .row
+      h1 Inventario Casa de Música Guayabal
+      table.table
+        tbody
+        each item in inventario
+          tr
+              td
+                img(src="#{item.img}", width=140, height=120)
+              td
+               b #{item.item}<br>
+               p #{item.precio1} #{item.moneda}<br>
+               b Cantidad: #{item.quantity}<br>
+               small   #{item.id}<br>
+               a(href="editarDetalle/#{item.id}")  editar <br>
+               b Guia de Compra:
+               a(href="#{item.urlInfo1}") #{item.urlInfo1}
+
+              td
+                b Especificaciones:
+                small
+                -var json = JSON.stringify(item.specs)
+                -var parse = JSON.parse(json)
+                  each val, key in parse
+                    <br>
+                    small
+                      b
+                        i  #{key}:
+                      small #{val}
+              td
+                b Sugerencias:<br>
+                small Referencia: #{item.referencia1}<br>
+                small Marca: #{item.marca1}<br>
+                small URL Fabricante:
+                    a(href="#{item.urlFabricante1}") #{item.urlFabricante1}<br>
+                small urlVenta:
+                  a(href = "#{item.urlVenta01}") #{item.urlVenta01}<br>
