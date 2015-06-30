@@ -11,6 +11,21 @@ module.exports = {
       res.view('inventario/findall',{inventario : item});
     });
   },
+  ordenAlfabetico : function(req,res){
+    Inventario.find().sort({item:1}).exec(function(err, item){
+      res.view('inventario/findall',{inventario : item});
+    });
+  },
+   ordenPrecio : function(req,res){
+    Inventario.find().sort({precio1:-1}).exec(function(err, item){
+      res.view('inventario/findall',{inventario : item});
+    });
+  },
+   ordenPrecioTotal : function(req,res){
+    Inventario.find().sort({total:-1}).exec(function(err, item){
+      res.view('inventario/findall',{inventario : item});
+    });
+  },
    editarDetalle : function(req, res){
      Inventario.findOneById(req.param('id')).exec(function(err, item){
       res.render('inventario/editarDetalle',{inventario : item});

@@ -3,6 +3,14 @@ block body
   .jumbotron.hero-spacer
     .row
       h1 Inventario Casa de Música Guayabal
+      ul.nav.nav-tabs
+        li
+          a(href="ordenAlfabetico") Orden Alfabético
+        li
+          a(href="ordenPrecio")   Ordenar por  precio unitario
+        li
+          // TODO: Aprender a multiplicar en mongo y el controlador
+           // a(href="ordenPrecioTotal")   Ordenar por  precio total
       table.table
         tbody
         each item in inventario
@@ -11,8 +19,14 @@ block body
                 img(src="#{item.img}", width=140, height=120)
               td
                b #{item.item}<br>
-               p #{item.precio1} #{item.moneda}<br>
+               i #{item.moneda1}#{item.precio1} <br>
                b Cantidad: #{item.quantity}<br>
+               // debo hacer la multiplicación en el controlador
+               // para poder ordenar aca
+               - var qty = item.quantity;
+               - var price = item.precio1;
+               - var total = qty*price;
+                 p #{item.moneda1} #{total}
                small   #{item.id}<br>
                a(href="editarDetalle/#{item.id}")  editar <br>
                b Guia de Compra:
