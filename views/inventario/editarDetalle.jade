@@ -1,0 +1,36 @@
+extends ../layout
+block body
+  .jumbotron.hero-spacer
+    .row
+      h1 Inventario Casa de Música Guayabal
+      form(role="form", method="POST", action="/inventario/editarDetalle/#{inventario.id}")
+      fieldset
+        .col-md-15
+         label.cotrol-label(for="Imagen") Imagen:
+        input.form-control(type="text", value="#{inventario.img}", name="img", placeholder="Imagen")
+        label.cotrol-label(for="Item") Item:
+        input.form-control(type="text", value="#{inventario.item}", name="item")
+       fieldset
+        .col-md-1
+          label.cotrol-label(for="Cantidad") Cantidad:
+            input.form-control(type="text", value="#{inventario.quantity}", name="quantity")
+        -var json = JSON.stringify(inventario.specs)
+        -var parse = JSON.parse(json)
+          each val, key in parse
+            .text-success #{key} <kbd> #{val}</kbd>
+              input.form-control(type="text", value="#{key}", name="specs")
+              input.form-control(type="text", value="#{val}", name="specs")
+        // input.form-control(type="text", value="#{inventario.specs}", name="specs")
+        hr
+        label.cotrol-label(for="marca1") marca1:
+        input.form-control(type="text", value="#{inventario.marca1}", name="marca1")
+        label.cotrol-label(for="referencia1") Referencia1:
+        input.form-control(type="text", value="#{inventario.referencia1}", name="referencia1")
+        label.cotrol-label(for="urlFabricante1") URL Fabricante 1:
+        input.form-control(type="text", value="#{inventario.urlFabricante1}", name="urlFabricante1")
+        label.cotrol-label(for="urlVenta01") URL Venta 01:
+        input.form-control(type="text", value="#{inventario.urlVenta01}", name="urlVenta01")
+        label.cotrol-label(for="urlInfo1") URL Info1:
+        input.form-control(type="text", value="#{inventario.urlInfo1}", name="urlInfo1")
+        input(type="submit", value="Guardar")
+        //input.btn.btn-lg.btn-primary.btn-block(type="submit", value="Guardar")
